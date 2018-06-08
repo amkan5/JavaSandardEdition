@@ -1,0 +1,33 @@
+package Step4;
+
+import javax.swing.JOptionPane;
+
+public class Matrix {
+	public static void main(String[] args) {
+		String menu = "1. LeftTriangle"
+				+ "2. RightTriangle"
+				+ "3. Zigzag"
+				+ "4. Diamond"
+				+ "5. SnadGlass"
+				+ "6. Triangle"
+				+ "7. Diagonal"
+				+ "8. MatrixConversion"
+				+ "9. Snail"
+				+ "10. MagicSquare";
+		switch(JOptionPane.showInputDialog(menu)) {
+		case "1" : break;
+		case "2" : break;
+		case "3" : break;
+		case "4" : break;
+		case "5" : break;
+		case "6" : break;
+		case "7" : break;
+		case "8" : break;
+		case "9" : break;
+		case "10" : break;
+		
+		}
+
+	}
+
+}

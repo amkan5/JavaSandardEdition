@@ -1,0 +1,20 @@
+package Example;
+import java.util.Scanner;
+public class Example5 {
+	public static void main(String[] args) {
+		int data=0;
+		System.out.println("입력진수 결정 <1>10 <2>16 <3>8 ");
+		Scanner s = new Scanner(System.in);
+		String menu = s.next();
+		System.out.println("값 입력");
+		switch(menu){
+		case "1" : s.nextInt();)
+			break;
+		case "2" : break;
+		case "3" : break;
+		default : return;
+		}
+
+	}
+
+}

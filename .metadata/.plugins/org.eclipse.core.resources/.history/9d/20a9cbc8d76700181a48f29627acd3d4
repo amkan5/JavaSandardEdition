@@ -1,0 +1,47 @@
+package step3;
+/*import java.util.Scanner;*/
+import javax.swing.JOptionPane;
+public class Starbuks {
+	public static int getPrice(int count,String menu) {
+		int[] price = {3000,3500,4000};
+		int result =count*price[Integer.parseInt(menu)-1];
+		return result;
+	}
+	public static int getTotal() {
+		int result =0;
+		
+		return result;
+	}
+	public static void main(String[] args) {
+		/*JOptionPane sc = new JOptionPane();*/
+		int total = 0, sum=0, totalPrice=0;
+		String result="";
+		while(true) {
+			String menu = JOptionPane.showInputDialog("무엇으로드릴까요?\n0.종료\n1.아메리카노3000\n" 
+					+ "2.라떼 3500\n" 
+					+  "3.카푸치노4000\n");
+			switch(Integer.parseInt(menu)) {
+			case 0: JOptionPane.showMessageDialog(null, "결제금액이 총 " + total + "원입니다\n");
+			return;			
+				/*	int count = Integer.parseInt(JOptionPane.showInputDialog("몇잔 드릴까요?"));
+					sum=Integer.parseInt(count)*price(Integer.parseInt(menu));
+					sum = getPrice(count,menu);
+					total += sum;
+					result = "결제금액: " + total;*/
+			case 1: case 2: case 3: 
+				count = Integer.valueOf(JOptionPane.showInputDialog("몇잔 드릴까요?"));
+				int[] price = {3000,3500,4000};
+				totalPrice += ;
+				/*for (int i=0; i<=price.length;i++) {
+					if(i==Integer.parseInt(menu)) {
+					sum = Integer.parseInt(count)*price[i-1];
+					total += sum;
+					}
+				}*/
+				// totalPrice 구하는걸 한줄로 구해내기 -> for문을 안쓰고 변수로 값을 받아서?
+				break;	
+			default : return;
+			}	
+		}
+	}
+}

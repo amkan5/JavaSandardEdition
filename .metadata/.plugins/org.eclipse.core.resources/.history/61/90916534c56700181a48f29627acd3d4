@@ -1,0 +1,26 @@
+package step3;
+import javax.swing.JOptionPane;
+public class Calc {
+	public static void main(String[] args) {
+    	int total = 0, num=0;
+    	String str = "";
+		while(true) {
+				num = Integer.parseInt(JOptionPane.showInputDialog("Enter number"));	
+	        	String op = JOptionPane.showInputDialog("Enter op");
+	        	str += String.valueOf(num) + op;
+	        	switch(op){
+	            case "+" : total+=num;break;
+	            case "-" : total-=num; break;
+	            case "*" : total=total*num; break;
+	            case "/" : total+=total/num; break;
+	            case "%" : total+=total%num; break;
+	            case "=" : JOptionPane.showMessageDialog(null, str  + total);
+	            		 	return;
+	            default : JOptionPane.showMessageDialog(null,"에러");
+	            			return;
+	        	}
+
+			 
+	        	}
+		}
+	}

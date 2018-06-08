@@ -1,0 +1,10 @@
+package Step4;
+
+public class triangle {
+	public static void main(String[] args) {
+	 int[][] mtx = new int[4][7];
+	 int k=0;
+
+	}
+
+}

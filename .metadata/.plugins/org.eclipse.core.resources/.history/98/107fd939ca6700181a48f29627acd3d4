@@ -1,0 +1,17 @@
+package step3;
+import javax.swing.JOptionPane;
+public class RPSGame {
+	public static void main(String[] args) {
+		int num1 = 0, num2=0;
+		String result = "";
+		System.out.println("A: 0.가위 1.바위 2.보");
+		num1 = String.valueOf(JOptionPane.showInputDialog(""));
+	 		System.out.println("B : 0.가위 1.바위 2.보");
+	 		num2 = sc.nextInt();
+	 		result = (num1==num2)? "비김" : "B가이김";
+	 		if ((num1+num2==1)&&(num1==1)||((num1+num2==2)&&(num1==0))||((num1+num2==3)&&(num1==2))) {
+	 			result = "A가이김";
+	 		}
+	}
+
+}

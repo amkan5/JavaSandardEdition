@@ -1,0 +1,12 @@
+package Step5;
+
+import javax.swing.JOptionPane;
+
+public class Salary {
+	public static void main(String[] args) {
+		String input = JOptionPane.showInputDialog("부서/성명/본봉/수당");
+		String[][] salary = new String[10][10];
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package Example;
+import java.util.Scanner;
+public class Example5 {
+	public static void main(String[] args) {
+		System.out.println("입력진수 결정 <1>10 <2>16 <3>8 ");
+		Scanner s = new Scanner(System.in);
+
+	}
+
+}
