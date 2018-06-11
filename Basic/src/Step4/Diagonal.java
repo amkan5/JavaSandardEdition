@@ -28,5 +28,6 @@ public class Diagonal {
 		}
 		System.out.println();
 	}
+	System.out.println((int)(Math.random()*45));
 	}
 }

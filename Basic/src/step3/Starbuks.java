@@ -9,7 +9,6 @@ public class Starbuks {
 	}
 	public static int getTotal() {
 		int result =0;
-
 		return result;
 	}
 	public static void main(String[] args) {

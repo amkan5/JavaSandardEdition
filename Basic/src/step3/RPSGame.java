@@ -23,6 +23,7 @@ public class RPSGame {
 			break;
 		case 1 : result = "A : " + String.valueOf(countA) + "승 " + String.valueOf(totalCount-countA-countD)  + "패 " +String.valueOf(countD) + "무";
 				JOptionPane.showMessageDialog(null, result);
+				
 			return;
 		}
 		
