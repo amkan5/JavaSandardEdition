@@ -16,10 +16,7 @@ enum Butt2{
 }
 public class PhoneMain {
 	public static void main(String[] args) {
-		Phone phone = null;
-		CellPhone cp = null;
-		IPhone ip = null;
-		GalaxyPhone gp = null;
+		Phone phone = null; //다형성
 		Butt2[] buttons = {
 				Butt2.EXIT,
 				Butt2.TELEPHONE,
@@ -46,26 +43,26 @@ public class PhoneMain {
 				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			case CELLPHONE : 
-				cp = new CellPhone();
-				cp.setName(JOptionPane.showInputDialog("이름은?"));
-				cp.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
-				cp.setCall(JOptionPane.showInputDialog("전화내용은?"));
-				JOptionPane.showMessageDialog(null, cp.toString());
+				phone = new CellPhone();
+				phone.setName(JOptionPane.showInputDialog("이름은?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
+				phone.setCall(JOptionPane.showInputDialog("전화내용은?"));
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
-			case IPHONE : 
-				ip = new IPhone();
-				ip.setName(JOptionPane.showInputDialog("이름은?"));
-				ip.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
-				ip.setData(JOptionPane.showInputDialog("문자내용은?"));
-				JOptionPane.showMessageDialog(null, ip.toString());
+			case IPHONE :  
+				phone = new IPhone();
+				phone.setName(JOptionPane.showInputDialog("이름은?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
+				((IPhone) phone).setData(JOptionPane.showInputDialog("문자내용은?"));
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			case GALAXYPHONE : 
-				gp = new GalaxyPhone();
-				gp.setName(JOptionPane.showInputDialog("이름은?"));
-				gp.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
-				gp.setData(JOptionPane.showInputDialog("카톡내용은?"));
-				gp.setSize();
-				JOptionPane.showMessageDialog(null, gp.toString());
+				phone = new GalaxyPhone();
+				phone.setName(JOptionPane.showInputDialog("이름은?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호는?"));
+				((IPhone) phone).setData(JOptionPane.showInputDialog("카톡내용은?"));
+				((GalaxyPhone) phone).setSize();
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			default: break;
 			}

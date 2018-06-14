@@ -2,8 +2,9 @@ package domain;
 
 
 public class Salary {
-	String dept,name;
-	int sal,bonus,total,sum;
+	public static final String DEPT = "인턴쉽";
+	protected String dept,name;
+	int sal,total,sum;
 	public void setDept(String dept) {
 		this.dept=dept;
 	}
@@ -13,11 +14,8 @@ public class Salary {
 	public void setSal(int sal) {
 		this.sal=sal;
 	}
-	public void setBonus(int bonus) {
-		this.bonus=bonus;
-	}
 	public void setTotal() {
-		total= sal+bonus;
+		total= sal;
 	}
 	public void setSum() {
 		sum += total;
@@ -31,9 +29,7 @@ public class Salary {
 	public int getSal() {
 		return sal;
 	}
-	public int getBonus() {
-		return bonus;
-	}
+	
 	public int getTotal() {
 		return total;
 	}
@@ -41,7 +37,7 @@ public class Salary {
 		return sum;
 	}
 	public String toString() {
-		return String.format("| %s | %s | %d | %d | %d |", dept,name,sal,bonus,total);
+		return String.format("| %s | %s | %d | %d |", dept,name,sal,total);
 	}
 
 }

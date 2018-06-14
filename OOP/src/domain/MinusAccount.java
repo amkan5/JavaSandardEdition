@@ -2,12 +2,17 @@ package domain;
 
 public class MinusAccount extends Account {
 	public final static String ACCOUNT_TYPE="마이너스통장";
-	public int debt; // 대출금
-	public void setDebt(int debt) {
-		this.debt=debt*-1;
+	public String accountType;
+	public int debt,limit; // 대출금
+	public MinusAccount (String name,String uId,String pass) {
+		super(name,uId,pass);
+		setAccountType(ACCOUNT_TYPE);
 	}
-	public int getDebt() {
-		return debt;
+	public void setLimit(int limit) {
+		this.limit=limit;
+	}
+	public int getLimit() {
+		return limit;
 	}
 	public String toString() {
 		super.setAccountNo();
@@ -17,10 +22,10 @@ public class MinusAccount extends Account {
 				+ "이름: %s\n"
 				+ "생성일 :%s\n"
 				+ "잔액: %d\n",
-				super.BANK_NAME,
+				BANK_NAME, 
 				super.getAccountNo(),
 				super.getName(),
 				super.getCreateDate(),
-				getDebt());
+				super.getMoney());
 	}
 }

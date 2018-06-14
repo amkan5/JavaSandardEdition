@@ -97,7 +97,7 @@ public class Main {
  					sal.setDept(ind[0]);
  					sal.setName(ind[1]);
  					sal.setSal(Integer.valueOf(ind[2]));
- 					sal.setBonus(Integer.valueOf(ind[3]));
+ 					/*sal.setBonus(Integer.valueOf(ind[3]));*/
  					sal.setTotal();
  					emp[cnt_sal] = sal;
  					JOptionPane.showMessageDialog(null, emp[cnt_sal].toString());

@@ -256,3 +256,69 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.jface.text 2 0 2018-06-14 09:46:20.481
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-14 17:16:13.400
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-14 17:16:13.400
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-14 17:54:56.617
+!MESSAGE 
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at org.eclipse.text.edits.TextEdit.<init>(TextEdit.java:146)
+	at org.eclipse.text.edits.DeleteEdit.<init>(DeleteEdit.java:33)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.doTextRemove(ASTRewriteAnalyzer.java:397)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.doTextRemoveAndVisit(ASTRewriteAnalyzer.java:406)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer$ListRewriter.rewriteList(ASTRewriteAnalyzer.java:738)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer$ListRewriter.rewriteList(ASTRewriteAnalyzer.java:811)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.rewriteParagraphList(ASTRewriteAnalyzer.java:1184)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.visit(ASTRewriteAnalyzer.java:1711)
+	at org.eclipse.jdt.core.dom.CompilationUnit.accept0(CompilationUnit.java:249)
+	at org.eclipse.jdt.core.dom.ASTNode.accept(ASTNode.java:2811)
+	at org.eclipse.jdt.core.dom.rewrite.ASTRewrite.internalRewriteAST(ASTRewrite.java:302)
+	at org.eclipse.jdt.core.dom.rewrite.ASTRewrite.rewriteAST(ASTRewrite.java:291)
+	at org.eclipse.jdt.internal.corext.refactoring.structure.CompilationUnitRewrite.attachChange(CompilationUnitRewrite.java:279)
+	at org.eclipse.jdt.internal.corext.refactoring.structure.CompilationUnitRewrite.createChange(CompilationUnitRewrite.java:242)
+	at org.eclipse.jdt.internal.corext.fix.CompilationUnitRewriteOperationsFix.createChange(CompilationUnitRewriteOperationsFix.java:99)
+	at org.eclipse.jdt.internal.ui.text.correction.proposals.FixCorrectionProposal.createTextChange(FixCorrectionProposal.java:149)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.createChange(CUCorrectionProposal.java:238)
+	at org.eclipse.jdt.ui.text.java.correction.ChangeCorrectionProposal.getChange(ChangeCorrectionProposal.java:383)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.getTextChange(CUCorrectionProposal.java:248)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.getAdditionalProposalInfo(CUCorrectionProposal.java:141)
+	at org.eclipse.jdt.internal.ui.text.correction.proposals.FixCorrectionProposal.getAdditionalProposalInfo(FixCorrectionProposal.java:131)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$Timer$2$1.run(AdditionalInfoController.java:113)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-14 17:55:00.899
+!MESSAGE 
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: 
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:110)
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:96)
+	at org.eclipse.text.edits.TextEdit.<init>(TextEdit.java:146)
+	at org.eclipse.text.edits.DeleteEdit.<init>(DeleteEdit.java:33)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.doTextRemove(ASTRewriteAnalyzer.java:397)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.doTextRemoveAndVisit(ASTRewriteAnalyzer.java:406)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer$ListRewriter.rewriteList(ASTRewriteAnalyzer.java:738)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer$ListRewriter.rewriteList(ASTRewriteAnalyzer.java:811)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.rewriteParagraphList(ASTRewriteAnalyzer.java:1184)
+	at org.eclipse.jdt.internal.core.dom.rewrite.ASTRewriteAnalyzer.visit(ASTRewriteAnalyzer.java:1711)
+	at org.eclipse.jdt.core.dom.CompilationUnit.accept0(CompilationUnit.java:249)
+	at org.eclipse.jdt.core.dom.ASTNode.accept(ASTNode.java:2811)
+	at org.eclipse.jdt.core.dom.rewrite.ASTRewrite.internalRewriteAST(ASTRewrite.java:302)
+	at org.eclipse.jdt.core.dom.rewrite.ASTRewrite.rewriteAST(ASTRewrite.java:291)
+	at org.eclipse.jdt.internal.corext.refactoring.structure.CompilationUnitRewrite.attachChange(CompilationUnitRewrite.java:279)
+	at org.eclipse.jdt.internal.corext.refactoring.structure.CompilationUnitRewrite.createChange(CompilationUnitRewrite.java:242)
+	at org.eclipse.jdt.internal.corext.fix.CompilationUnitRewriteOperationsFix.createChange(CompilationUnitRewriteOperationsFix.java:99)
+	at org.eclipse.jdt.internal.ui.text.correction.proposals.FixCorrectionProposal.createTextChange(FixCorrectionProposal.java:149)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.createChange(CUCorrectionProposal.java:238)
+	at org.eclipse.jdt.ui.text.java.correction.ChangeCorrectionProposal.getChange(ChangeCorrectionProposal.java:383)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.getTextChange(CUCorrectionProposal.java:248)
+	at org.eclipse.jdt.ui.text.java.correction.CUCorrectionProposal.getAdditionalProposalInfo(CUCorrectionProposal.java:141)
+	at org.eclipse.jdt.internal.ui.text.correction.proposals.FixCorrectionProposal.getAdditionalProposalInfo(FixCorrectionProposal.java:131)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$Timer$2$1.run(AdditionalInfoController.java:113)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)

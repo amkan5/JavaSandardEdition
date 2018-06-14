@@ -28,7 +28,9 @@ import domain.Account;
 import domain.MinusAccount;
 enum Butt3{
 		STANDARD_ACCOUNT,
-		MINUS_ACCOUNT
+		MINUS_ACCOUNT,
+		DEPOSIT,
+		WITHDRAW,
 }
 enum Butt4{
 		YES,
@@ -40,7 +42,9 @@ public class AccountMain {
 		MinusAccount macc = null;
 		Butt3[] buttons = {
 				Butt3.STANDARD_ACCOUNT,
-				Butt3.MINUS_ACCOUNT
+				Butt3.MINUS_ACCOUNT,
+				Butt3.DEPOSIT,
+				Butt3.WITHDRAW
 		}; 
 		Butt4[] button = {
 				Butt4.YES,
@@ -58,10 +62,11 @@ public class AccountMain {
 					);
 			switch(menu) {
 			case STANDARD_ACCOUNT : 
-				acc = new Account();
-				acc.setUid(JOptionPane.showInputDialog("ID를 입력하세요"));
-				acc.setPass(JOptionPane.showInputDialog("Password를 입력하세요"));
-				acc.setName(JOptionPane.showInputDialog("이름을 입력하세요"));
+				acc = new Account(
+						JOptionPane.showInputDialog("이름을 입력하세요"),
+						JOptionPane.showInputDialog("ID를 입력하세요"),
+						JOptionPane.showInputDialog("Password를 입력하세요")
+						);
 				Butt4 ask = (Butt4)JOptionPane.showInputDialog(
 						null, //frame
 						"입금하시겠습니까?", //frame title
@@ -81,29 +86,38 @@ public class AccountMain {
 				JOptionPane.showMessageDialog(null, acc.toString());
 				break;
 			case MINUS_ACCOUNT : 
-				macc = new MinusAccount();
-				macc.setUid(JOptionPane.showInputDialog("ID를 입력하세요"));
-				macc.setPass(JOptionPane.showInputDialog("Password를 입력하세요"));
-				macc.setName(JOptionPane.showInputDialog("이름을 입력하세요"));
-				ask = (Butt4)JOptionPane.showInputDialog(
-						null, //frame
-						"대출하시겠습니까?", //frame title
-						"SELECT ACCOUNT MENU", //order
-						JOptionPane.QUESTION_MESSAGE, //type
-						null, //icon
-						button, //Array of choices
-						button[1] //default
+				acc = new MinusAccount(
+						JOptionPane.showInputDialog("이름을 입력하세요"),
+						JOptionPane.showInputDialog("ID를 입력하세요"),
+						JOptionPane.showInputDialog("Password를 입력하세요")
 						);
-				switch(ask) {
-				case YES : macc.setDebt(Integer.parseInt(JOptionPane.showInputDialog("대출금액은?")));break;
-				case NO : macc.setDebt(0); break;
-				default : return;
+				((MinusAccount) acc).setLimit(Integer.parseInt(JOptionPane.showInputDialog("대출한도는?")));	
+				JOptionPane.showMessageDialog(null, acc.toString());
+				break;
+			case DEPOSIT : 
+				acc.setMoney(Integer.parseInt(JOptionPane.showInputDialog("입금금액은?")));
+				JOptionPane.showMessageDialog(null, acc.toString());
+				break;
+			case WITHDRAW : 
+				int money = 0;
+				/*acc.setWithdraw(Integer.parseInt(JOptionPane.showInputDialog("출금금액은?"))*-1);*/
+				if(((MinusAccount) acc).getLimit()!=0){
+					money = Integer.parseInt(
+							JOptionPane.showInputDialog("출금액?"))*-1;
+					if(money> ((MinusAccount) acc).getLimit()){
+						acc.setMoney(money);
+					}else {
+						JOptionPane.showMessageDialog(null, "출금불가능");
+					}
+				}else if(money>acc.getMoney()){
+					JOptionPane.showMessageDialog(null, "출금불가능");
+				}else {
+					acc.setMoney(money*1);
 				}
-				JOptionPane.showMessageDialog(null, macc.toString());
+				JOptionPane.showMessageDialog(null, acc.toString());
 				break;
 			default : return;
 			}
-			
 		}
 
 	}
