@@ -40,6 +40,7 @@ public class BMI {
 		return weight;
 	}
 	public String toString() {
-		return String.format("%s, %f mm, %f kg, %s", name, height, weight, result);
+		/*return String.format("%s, %f mm, %f kg, %s", name, height, weight, result);*/
+		return "";
 	}
 }

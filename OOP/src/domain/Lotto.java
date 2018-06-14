@@ -26,11 +26,7 @@ public class Lotto {
 	}
 	public void setResult() {
 		for(int i=0;i<6;i++) {
-			setBall();
-			for(int j=0;j<count;j++) {
 			result += String.valueOf(balls[i]);
-		}
-			result += "\n";
 		}
 	}
 	public int getMoney() {
@@ -46,7 +42,7 @@ public class Lotto {
 		return result;
 	}
 	public String toString() {
-		return String.format("%s",result);
+		return String.format("%d %d %d %d %d %d",balls[0],balls[1],balls[2],balls[3],balls[4],balls[5]);
 	}
 	
 }

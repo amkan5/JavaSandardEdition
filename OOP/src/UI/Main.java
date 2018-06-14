@@ -116,7 +116,7 @@ public class Main {
  					lot.setMoney(Integer.parseInt(JOptionPane.showInputDialog("얼마?")));
  					lot.setCount();
  					lot.setResult();
- 					JOptionPane.showMessageDialog(null, lot.getResult());
+ 					JOptionPane.showMessageDialog(null, lot.toString());
  					break;
  				default : return;
 			}

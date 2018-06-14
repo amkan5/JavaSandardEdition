@@ -1,9 +1,0 @@
-package Step4;
-
-public class triangle {
-	public static void main(String[] args) {
-	 int[][] mtx = new int[5][5];
-
-	}
-
-}

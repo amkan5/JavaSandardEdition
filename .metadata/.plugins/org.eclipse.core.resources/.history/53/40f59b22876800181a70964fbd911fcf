@@ -1,9 +1,0 @@
-package Step4;
-
-public class Matrixvertical {
-	public static void main(String[] args) {
-		int k=0;
-		int[][] mtx = new int[5][5];
-	}
-
-}
