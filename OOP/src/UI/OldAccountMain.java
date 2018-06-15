@@ -1,7 +1,5 @@
 package UI;
-import service.*;
-import serviceImpl.*;
-import domain.*;
+
 import javax.swing.JOptionPane;
 
 //스위치로 마이너스통장갈지 스탠다드통장갈지.... 마이너스 통장에는 대출하는 기능만.
@@ -28,37 +26,32 @@ import javax.swing.JOptionPane;
  * **/
 import domain.Account;
 import domain.MinusAccount;
-enum accButt3{
+enum Butt3{
 		STANDARD_ACCOUNT,
 		MINUS_ACCOUNT,
 		DEPOSIT,
 		WITHDRAW,
-		LIST
 }
-enum accButt4{
+enum Butt4{
 		YES,
 		NO
 }
-public class AccountMain {
+public class OldAccountMain {
 	public static void main(String[] args) {
 		Account acc = null;
-		/*Account[] clnt = new Account[3]; 이사했어 Imp쪽으로*/
-		AccountService service = new AccountServiceImp();
 		MinusAccount macc = null;
-		int cnt = 0;
-		accButt3[] buttons = {
-				accButt3.STANDARD_ACCOUNT,
-				accButt3.MINUS_ACCOUNT,
-				accButt3.DEPOSIT,
-				accButt3.WITHDRAW,
-				accButt3.LIST
+		Butt3[] buttons = {
+				Butt3.STANDARD_ACCOUNT,
+				Butt3.MINUS_ACCOUNT,
+				Butt3.DEPOSIT,
+				Butt3.WITHDRAW
 		}; 
-		accButt4[] button = {
-				accButt4.YES,
-				accButt4.NO
+		Butt4[] button = {
+				Butt4.YES,
+				Butt4.NO
 		};
 		while(true){
-			accButt3 menu = (accButt3)JOptionPane.showInputDialog(
+			Butt3 menu = (Butt3)JOptionPane.showInputDialog(
 					null, //frame
 					"Account PAGE", //frame title
 					"SELECT ACCOUNT MENU", //order
@@ -69,12 +62,27 @@ public class AccountMain {
 					);
 			switch(menu) {
 			case STANDARD_ACCOUNT : 
-				service.addList(service.CreateAccount(
+				acc = new Account(
 						JOptionPane.showInputDialog("이름을 입력하세요"),
 						JOptionPane.showInputDialog("ID를 입력하세요"),
 						JOptionPane.showInputDialog("Password를 입력하세요")
-						));
-					acc.setMoney(Integer.parseInt(JOptionPane.showInputDialog("입금금액은?")));
+						);
+				Butt4 ask = (Butt4)JOptionPane.showInputDialog(
+						null, //frame
+						"입금하시겠습니까?", //frame title
+						"SELECT ACCOUNT MENU", //order
+						JOptionPane.QUESTION_MESSAGE, //type
+						null, //icon
+						button, //Array of choices
+						button[1] //default
+						);
+				switch(ask){
+				case YES : 
+					acc.setMoney(Integer.parseInt(JOptionPane.showInputDialog("입금금액은?"))); break;
+				case NO : 
+					acc.setMoney(0); break;
+				default : return;
+				}
 				JOptionPane.showMessageDialog(null, acc.toString());
 				break;
 			case MINUS_ACCOUNT : 
@@ -108,7 +116,6 @@ public class AccountMain {
 				}
 				JOptionPane.showMessageDialog(null, acc.toString());
 				break;
-			case LIST : JOptionPane.showMessageDialog(null, service.showResult()); break;
 			default : return;
 			}
 		}
