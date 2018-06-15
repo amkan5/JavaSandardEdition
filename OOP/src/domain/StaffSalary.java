@@ -4,7 +4,13 @@ public class StaffSalary extends Payment{
 	protected int bonus;
 	public StaffSalary(String name,int sal) {
 		super(name,sal+(int)(sal*0.1));
-		super.dept = name.substring(0,1)+DEPT;
-		toString();
+		super.dept = DEPT;
+		super.name = name.substring(0,1)+DEPT;
+	}
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
+	public int getBonus() {
+		return bonus;
 	}
 }

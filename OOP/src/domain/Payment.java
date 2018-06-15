@@ -5,13 +5,14 @@ public class Payment {
 	protected String dept,name;
 	protected int sal;
 	public Payment(String name, int sal) {
-		this.name = name;
+		this.name = name.substring(0,1)+DEPT;
 		this.sal = sal;
-		this.dept = name.substring(0,1)+DEPT;
+		this.dept = DEPT;
 		toString();
 	}
+	
 	public String toString() {
-		return String.format("%s %d만원 지급",dept,sal);
+		return String.format("%s %d만원 지급",name,sal);
 	}
 	
 }

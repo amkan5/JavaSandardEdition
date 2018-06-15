@@ -33,7 +33,7 @@ public class Account {
 		setMoney(money);
 	}
 	public void setMoney(int money) {
-		this.money += money;
+		this.money = money;
 	}
 	public void setAccountType(String accountType) {
 		this.accountType=accountType;
