@@ -1,7 +1,7 @@
 package service;
 import domain.*;
 public interface AccountService {
-		public void createAccount(AccountBean account); //생성자에 넣은거
+		public void createAccount(AccountBean account); 
 		public MinusAccountBean createMinusAccount(MinusAccountBean maccount);
 		public void addList(AccountBean account);
 		public AccountBean[] list();
@@ -18,4 +18,6 @@ public interface AccountService {
 		public int countSameName(String name);
 		public String showNameResult(AccountBean[] arr);
 		public Object showMinusResult();
+		public String changePass(AccountBean ac);
+		public String deleteAccount(AccountBean ac);;
 }

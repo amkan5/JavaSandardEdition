@@ -4,12 +4,6 @@ import javax.swing.JOptionPane;
 import domain.*;
 import service.*;
 import serviceInput.*;
-/*계좌계설이랑 리스트 뽑기 
- * input:name, id, password
- * -AccNo 랜덤으로 발생
- * -createDate
- * -리스트 배열에 넣기.
- * output: accountType, Name, AccNo, createDate */
 enum AButt{
 	EXIT,
 	ACCOUNT,
@@ -19,8 +13,16 @@ enum AButt{
 	WITHDRAW,
 	FIND_BY_ID,
 	FIND_BY_NAME,
-	MINUS_LIST
+	MINUS_LIST,
+	CHANGE_PASS,
+	DELETE_ACCOUNT
 }
+/*계좌계설이랑 리스트 뽑기 
+ * input:name, id, password
+ * -AccNo 랜덤으로 발생
+ * -createDate
+ * -리스트 배열에 넣기.
+ * output: accountType, Name, AccNo, createDate */
 public class AccountController {
 	public static void main(String[] args) {
 		AccountService service = new AccountServiceImpl();
@@ -34,7 +36,9 @@ public class AccountController {
 				AButt.LIST,
 				AButt.FIND_BY_ID,
 				AButt.FIND_BY_NAME,
-				AButt.MINUS_LIST
+				AButt.MINUS_LIST,
+				AButt.CHANGE_PASS,
+				AButt.DELETE_ACCOUNT
 			};
 		AButt menu = (AButt)JOptionPane.showInputDialog(
 		           null, //frame
@@ -85,6 +89,28 @@ public class AccountController {
 		case FIND_BY_NAME: 
 			AccountBean[] arr = service.findByName(JOptionPane.showInputDialog("name"));
 			JOptionPane.showMessageDialog(null, service.showNameResult(arr));
+			break;
+		case CHANGE_PASS:
+			ac = new AccountBean();
+			//findby작동시켜야해 id,pass,New Pass
+			ac.setUid(JOptionPane.showInputDialog("ID"));
+			ac.setPass(JOptionPane.showInputDialog("Pass")
+					+"/"+
+					JOptionPane.showInputDialog("New Pass") 
+					);
+			String msg = service.changePass(ac);
+			JOptionPane.showMessageDialog(null, msg);
+			break;
+		case DELETE_ACCOUNT :
+			ac = new AccountBean();
+			ac.setUid(JOptionPane.showInputDialog("ID"));
+			ac.setPass(JOptionPane.showInputDialog("Pass")
+					+"/"+
+					JOptionPane.showInputDialog("Confirm Pass") 
+					);
+			JOptionPane.showMessageDialog(null, service.deleteAccount(ac));
+			//배열에서 제거, 그 자리 비워두기 
+			//계좌삭제후 총 계좌수가 1 감소해야한다                                                                                                                                                                          
 			break;
 		default : break;
 		}			

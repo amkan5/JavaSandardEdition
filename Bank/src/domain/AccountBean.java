@@ -63,6 +63,6 @@ public class AccountBean {
 				+ "이름: %s\n"
 				+ "생성일 :%s\n"
 				+ "잔액: %d\n",
-				BANK_NAME,getAccountType(),getAccountNo(),getName(),getCreateDate(),getMoney());
+				BANK_NAME,accountType,accountNo,name,createDate,money);
 	}
 }

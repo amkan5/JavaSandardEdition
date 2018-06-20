@@ -38,6 +38,9 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public AccountBean[] list() {
 		/*AccountBean[] arr = new AccountBean[0];*/ //리터낟나?
+		/*for(int i=0;i<list.length;i++) { 배열구조를봐
+			res += list[i]+
+		}*/
 		return list;
 	}
 
@@ -84,19 +87,7 @@ public class AccountServiceImpl implements AccountService {
 		}
 		return result;
 	}
-	@Override
-	public AccountBean findByID(AccountBean account) {
-		AccountBean acc = new AccountBean();
-		for(int i=0;i<count;i++) {
-			if((account.getPass()).equals(list[i].getPass())&&(account.getUid()).equals(list[i].getUid())){
-				acc = list[i];
-				break;
-			}
-			}
-		// 배열 list를 looping 하면서 아이디가 일치하고 비번이 일치한 값을 찾아서 그 객체를 리턴한다.
-		// 일단 일치하는 값이 없는 상황은 나중에 치고 ...
-		return acc;
-	}
+	
 	@Override
 	public AccountBean[] findByName(String name) {
 		AccountBean[] arr = new AccountBean[countSameName(name)];
@@ -125,6 +116,63 @@ public class AccountServiceImpl implements AccountService {
 	public Object showMinusResult() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public AccountBean findByID(AccountBean account) {
+		AccountBean acc = new AccountBean();
+		for(int i=0;i<count;i++) {
+			if((account.getPass()).equals(list[i].getPass())&&(account.getUid()).equals(list[i].getUid())){
+				acc = list[i];
+				break;
+			}
+			}
+		// 배열 list를 looping 하면서 아이디가 일치하고 비번이 일치한 값을 찾아서 그 객체를 리턴한다.
+		// 일단 일치하는 값이 없는 상황은 나중에 치고 ...
+		return acc;
+	}
+	@Override
+	public String changePass(AccountBean ac) {
+		String msg = "";
+		String pass = ac.getPass().split("/")[0];
+		String newPass = ac.getPass().split("/")[1];
+		ac.setPass(pass);
+		ac = findByID(ac);
+		if(ac.getUid()==null) {
+			msg = "ID 존재무, 혹은 비번 모름";
+		}else if(!ac.getPass().equals(newPass)) {
+			ac.setPass(newPass);
+			msg="변경완료";
+		}else { 
+			msg="변경실패";
+		}
+				;
+		//성공 : 변경완료
+		//실패 : 변경실패
+		//비번이 같을경우 변경실패  
+		return msg;
+	}
+
+	@Override
+	public String deleteAccount(AccountBean ac) {
+		String msg = "";
+		String pass = ac.getPass().split("/")[0];
+		String newPass = ac.getPass().split("/")[1];
+		ac.setPass(pass);
+		for(int i=0;i<count;i++) {
+				if((ac.getPass()).equals(list[i].getPass())
+						&&
+						(ac.getUid()).equals(list[i].getUid())
+						&&
+						(pass.equals(newPass))){
+					list[i]=list[--count];
+					list[count]=null;
+					break;
+					}
+				else {
+					msg = "삭제실패";
+				}
+		}
+		return msg;
 	}
 
 
