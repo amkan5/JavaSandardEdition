@@ -7,6 +7,12 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="serviceImpl.AccountServiceImp"/>
 <fullyQualifiedTypeName name="service.AccountService"/>
-<fullyQualifiedTypeName name="domain.AccountBean"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="domain.UserBean"/>
+<fullyQualifiedTypeName name="serviceInput.MemberServiceImpl"/>
+<fullyQualifiedTypeName name="domain.StaffBean"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="domain.MinusAccountBean"/>
+<fullyQualifiedTypeName name="domain.MemberBean"/>
+<fullyQualifiedTypeName name="domain.AccountBean"/>
 </qualifiedTypeNameHistroy>

@@ -1,64 +1,91 @@
 package serviceInput;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 import domain.*;
 import service.AccountService;
 public class AccountServiceImpl implements AccountService {
-	List<AccountBean> list;
+	Map<String, AccountBean> map;
 
 	public AccountServiceImpl() {
-		list = new ArrayList<>();
+		map = new HashMap<>();
 	}
 	
 	public void createAccount(AccountBean acc) {
-		list.add(acc);
+		map.put(acc.getUid(),acc);
 	}
 
 	@Override
 	public void createMinusAccount(MinusAccountBean macc) {
-		list.add(macc);
+		map.put(macc.getUid(),macc);
 	}
 
 	@Override
-	public List<AccountBean> list() {
-		return list;
+	public Map<String,AccountBean> map() {
+		return map;
 	}
 
 	@Override
-	public List<AccountBean> search(String param) { //얘는 
+	public List<AccountBean> findByName(String name) { 
 		 List<AccountBean> temp = new ArrayList<>();
-		 for(int i=0;i<list.size();i++) {
-			 if(param.equals(list.get(i).getName())) {
-				 temp.add(list.get(i));
-			 }
+		 Set<AccountBean> set = new HashSet<>();
+		 
+	/*	for(Map.Entry<String, AccountBean> e : map.entrySet()) {
+			if(name.equals(e.getValue().getName())) {
+				set.add(e.getValue());
+			}
 		 }
+		Iterator<AccountBean> it = set.iterator();
+		while(it.hasNext()) {
+			temp.add(it.next());
+		}*/
+		
+		
+		/* List<MemberBean> temp = new ArrayList<>();
+			for (int i=0;i<list.size();i++) {
+				if(param.equals(list.get(i).getName())) {
+					temp.add(list.get(i));
+			}
+			}*/
+		 
+		/* Map<String, MemberBean> temp = new HashMap<String, MemberBean>();
+	      //Set<String> key = map.keySet();
+	      for(String key : map.keySet()) {
+	         if(name.equals(map.get(key).getName())) {
+	            temp.put(map.get(key).getUid(), map.get(key));
+	         }
+	      }*/
 		return temp;
 	}
 
 	@Override
-	public AccountBean search(AccountBean acc) { //얘는 하나만 찾어. 아이디/비번
-		AccountBean dep = new AccountBean();
-		for(int i=0;i<list.size();i++) {
-			 if(acc.getUid().equals(list.get(i).getUid())) {
-				 dep = list.get(i);
-				 break;
-			 }
-		}
-		return dep;
+	public AccountBean findById(AccountBean acc) {
+		return map.get(acc.getUid());
 	}
 
 	@Override
-	public void update(AccountBean acc) {
-		AccountBean m = search(acc);
-		m.setPass(acc.getPass());
-		list.add(list.indexOf(m),m);
-		//list.add(list.indexOf(m),m.setPass(acc.getPass()));
-		list.get(list.indexOf(search(acc))).setPass(acc.getPass());
+	public void updatePassword(AccountBean acc) {
+		String oldPass = acc.getPass().split("/")[0];
+		String newPass = acc.getPass().split("/")[1];
+		AccountBean ac = map.get(acc.getUid());
+		if(ac==null) {
+			System.out.println("id찾지못함");
+		}else if(oldPass.equals(ac.getPass())) {
+			ac.setPass(newPass);
+			map.put(acc.getUid(), ac);
+		}
+	/*	
+	 * 
+	 * AccountBean ac = map.get(acc.getUid());
+		if(ac==null) {
+			System.out.println("id찾지못함");
+		}else if(acc.getPass().split("/")[0].equals(ac.getPass())) {
+			ac.setPass(acc.getPass().split("/")[1]);
+			map.put(acc.getUid(), ac);
+		} */
+	
 	}
 	@Override
-	public void delete(AccountBean acc) {
-		list.remove(search(acc));
-		list.remove(list.indexOf(search(acc)));
+	public void deleteAccount(AccountBean acc) {
+		map.remove(acc.getUid());
 	}
 	
 }
