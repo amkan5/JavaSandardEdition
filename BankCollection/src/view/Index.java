@@ -1,62 +1,106 @@
 package view;
-import javax.swing.JOptionPane;
-import domain.MemberBean;
-import service.MemberService;
-import serviceInput.MemberServiceImpl;
-enum MButt{
-	//JOIN은 일반유저 추가, ADD는 직원 추가
-	EXIT,
-	JOIN, ADD, //void create  
-	LIST,FIND_BY_ID,FIND_BY_NAME,COUNT, //all, one, sum,count(read하는 method) <-리턴하는 결과값이 
-	UPDATE, //void 말그대로 update
-	WITHDRAWAL //void delete
-} //crud ->메소드짜는걸 앞글자만 따서 crud라고함 ㅎ 
-public class Index {
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Index extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Index(){
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("관리자화면");
+		this.setLayout(new GridLayout(3, 3,10,10));
+		JButton btn1 = new JButton("회원가입");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Register();
+			}
+		});
+		this.add(btn1);					//jframㄷ임 this
+		JButton btn2 = new JButton("통장생성");
+		btn2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new openAccount();
+			}
+		});
+		this.add(btn2);
+		JButton btn3 = new JButton("목록보기");
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn3);
+		JButton btn4 = new JButton("ID 검색");
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn4);
+		JButton btn5 = new JButton("이름 검색");
+		btn5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn5);
+		JButton btn6 = new JButton("비번 변경");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn6);
+		JButton btn7 = new JButton("입금");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn7);
+		JButton btn8 = new JButton("출금");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn8);
+		JButton btn9 = new JButton("회원 탈퇴");
+		btn1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		this.add(btn9);
+		setSize(600, 600);
+		setLocation(100, 100);
+		setVisible(true);
+	}
 	public static void main(String[] args) {
-		MemberService service = new MemberServiceImpl();
-		MemberBean mem = null;
-		while(true) {
-			MButt[] butt = {
-				MButt.EXIT,
-				MButt.JOIN,
-				MButt.ADD,
-				MButt.LIST,
-				MButt.FIND_BY_ID,
-				MButt.FIND_BY_NAME,
-				MButt.UPDATE,
-				MButt.WITHDRAWAL
-			};
-		MButt menu = (MButt)JOptionPane.showInputDialog(
-		           null, //frame
-		           "ACCOUNT PAGE", //frame title
-		           "SELECT MENU", //order
-		           JOptionPane.QUESTION_MESSAGE, //type
-		           null, // icon
-		           butt, //Array of choices
-		           butt[1] //default
-		            );
-		switch(menu) {
-		case JOIN : 
-			break;
-		case ADD : 
-			break;
-		case LIST : 
-			
-			break;
-		case FIND_BY_ID:
-		
-			break;
-		case FIND_BY_NAME: 
-		
-			break;
-		case UPDATE://비번만 바꾸기
-	
-			break;
-		case WITHDRAWAL:  
-			
-			break;
-		default : break;
-		}			
-		}
+		new Index();
 	}
 }

@@ -1,16 +1,25 @@
 package serviceInput;
 import java.util.*;
 import domain.*;
+import repositoryImpl.AccountDAOImpl;
 import service.AccountService;
 public class AccountServiceImpl implements AccountService {
+	private static AccountService instance = new AccountServiceImpl();
+	public static AccountService getInstance() {
+		return instance;
+	}
+	private AccountServiceImpl() {
+		
+	}	
 	Map<String, AccountBean> map;
 
-	public AccountServiceImpl() {
-		map = new HashMap<>();
-	}
-	
+
 	public void createAccount(AccountBean acc) {
-		map.put(acc.getUid(),acc);
+		System.out.println("==========멤버 서비스===========");
+		System.out.println("컨트럴로에서 넘어온 객체는" + acc);
+		acc.setAccountNo(AdminServiceImpl.getInstance().createAccountNo());
+		acc.setCreateDate(AdminServiceImpl.getInstance().createDate());
+		AccountDAOImpl.getInstance().insertAccount(acc);
 	}
 
 	@Override
@@ -18,11 +27,11 @@ public class AccountServiceImpl implements AccountService {
 		map.put(macc.getUid(),macc);
 	}
 
-	@Override
+/*	@Override
 	public Map<String,AccountBean> map() {
 		return map;
 	}
-
+*/
 	@Override
 	public List<AccountBean> findByName(String name) { 
 		 List<AccountBean> temp = new ArrayList<>();
@@ -56,10 +65,10 @@ public class AccountServiceImpl implements AccountService {
 		return temp;
 	}
 
-	@Override
+/*	@Override
 	public AccountBean findById(AccountBean acc) {
 		return map.get(acc.getUid());
-	}
+	}*/
 
 	@Override
 	public void updatePassword(AccountBean acc) {

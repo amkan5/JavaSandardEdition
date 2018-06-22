@@ -58,11 +58,15 @@ public class AccountBean {
 		return money;
 	}
 	public String toString() {
-		return String.format("%s %s\n"
+		return String.format("%s \n"
 				+ "계좌번호:%s \n"
 				+ "이름: %s\n"
 				+ "생성일 :%s\n"
 				+ "잔액: %d\n",
-				BANK_NAME,accountType,accountNo,name,createDate,money);
+				BANK_NAME,accountNo,name,createDate,money);
+	}
+	private void consol() {
+		// TODO Auto-generated method stub
+
 	}
 }

@@ -59,7 +59,6 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void deleteAccount(AccountBean acc) {
 		map.remove(acc.getUid());
-		
 	}
 	
 	
